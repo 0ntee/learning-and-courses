@@ -5,7 +5,7 @@ x = np.array([[1.0, 2.0, -1.0],
 
 y_true = np.array([[1.0, 0.0], 
                    [0.0, 1.0]])
-np.random.seed(42)
+np.random.seed(35)
 
 class Dense:
     def __init__(self, in_features, out_features, bias=True):
@@ -82,7 +82,7 @@ layer = Dense(in_features=3, out_features=2, bias=True)
 activation = ReLU()
 loss_fn = MSEloss()
 
-epochs = 13
+epochs = 200
 learning_rate = 0.1
 batch_size = x.shape[0]
 
@@ -99,7 +99,7 @@ for epoch in range(epochs):
     layer.w = layer.w - learning_rate * layer.dw
     layer.b = layer.b - learning_rate * layer.db
 
-    if epoch % 2 == 0 or epoch == 13:
+    if epoch % 20 == 0:
         print("Текущая эпоха:")
         print(epoch)
         print("Текущий loss:")
